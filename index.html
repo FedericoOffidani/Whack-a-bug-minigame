@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-30">
+            <h1>Tic Tac Toe</h1>
+            <div id="buttonArea">
+                <button class="gameButton" onclick="replay(),countdown()">
+                    New game
+                </button>
+            </div>
+            <div id="textArea">
+                <p>Score:<span id="testo">0</span></p>
+                <p>Time:<span id="tempo">30</span></p>
+            </div>
+        </div>
+        <div id="gameField" class="col-60">
+        </div>
+    </div>
+
+    <script>
+
+        //CREO IL GAMEFIELD
+        var tableSize = 3;
+        var score = 0;
+        var speed = 1000;
+        var myIntervall;
+        var myTime;
+        const GAMETIME = 30;
+        var timer = GAMETIME;
+        var timeOut = true;
+
+
+        const createGameField = (tableSize) => {
+            let grid = `<table> <tr>`;
+            const rows = tableSize * tableSize
+            for (let i = 1; i <= rows; i++) {
+                grid += `<td id="${i}" onclick="checkWin(${i})"></td>`;
+                if (i % Math.sqrt(rows) == 0 && i != rows) {
+                    grid += `</tr><tr>`;
+                    console.log("riga")
+                }
+                else if (i == rows) { console.log("chiusura table"); grid += `</tr></table>` };
+            }
+            grid += `</table>`;
+            document.getElementById('gameField').innerHTML = grid;
+        }
+        createGameField(tableSize);
+
+
+        const max = tableSize * tableSize;
+        const newBug = (max) => {
+            for (i = 1; i <= max; i++) { document.getElementById(i).classList.remove("assignDone", "assignFailed") };
+            const ID = Math.floor(Math.random() * (max) + 1);
+            console.log(ID);
+            document.getElementById(ID).classList.add("assignDone");
+            time = false;
+        }
+
+        const replay = () => {
+            myIntervall = setInterval(() => { newBug(max) }, speed);
+            console.log("nuovo intervllo");
+
+
+        }
+
+        const countdown = () => {
+            timeOut = true;
+            timer = GAMETIME
+            myTime = setInterval(() => {
+                if (timer > 0) {
+                    timer--;
+                }
+                else {
+                    timer = 0; clearInterval(myTime);
+                    clearInterval(myIntervall);
+                    timeOut = false
+                };
+                document.getElementById("tempo").innerText = timer;
+
+            }, 1000);
+        }
+
+
+        const checkWin = (Id) => {
+            if (timeOut) {
+                console.log(myIntervall);
+                const check = document.getElementById(Id)
+                if (check.classList.contains("assignDone")) {
+                    console.log("colpito");
+                    check.classList.add("assignFailed");
+                    counter(2);
+                    return true;
+                }
+                else {
+                    counter(-1);
+                    console.log("non colpito")
+                };
+            }
+        }
+
+
+        const counter = (point) => {
+            time != 0 ? score += point : null;
+            document.getElementById("testo").innerText = score;
+            if (score >= 20) {
+                speed = 100;
+                clearInterval(myIntervall);
+                if (timer != 0) { replay() };
+            }
+            else if (score >= 10) {
+                speed = 200;
+                clearInterval(myIntervall);
+                if (timer != 0) { replay() };
+            }
+
+            else if (score >= 0) { speed = 1000; }
+            clearInterval(myIntervall);
+            if (timeOut) { replay() };
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

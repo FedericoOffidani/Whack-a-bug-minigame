@@ -1,0 +1,181 @@
+* {
+    box-sizing: border-box;
+    font-family: Questrial, sans-serif;
+    font-weight: 900;
+}
+
+body {
+    background-color: black;
+}
+
+h1 {
+    color: white;
+    font-size: 3rem;
+    text-align: right;
+    padding-right: 40px;
+}
+
+table {
+    background-color: black;
+    border-collapse: collapse;
+    box-shadow: 5px 10px green;
+}
+
+td {
+    width: 12vw;
+    height: 12vw;
+    min-width: 100px;
+    min-height: 500px;
+    border: solid 10px white;
+    font-size: 7em;
+    text-align: center;
+    color: white;
+    font-family: sans-serif;
+}
+
+.assignDone {
+    background-image: url("./img/paperino1.jpg");
+    background-size: cover;
+}
+
+.assignFailed {
+    background-image: url("./img/faraona-al-forno1.jpg");
+    background-size: cover;
+
+
+}
+
+.assignWin {
+    background-color: green;
+}
+
+#buttonArea {
+    background-color: black;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 40px;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-top: 80px;
+}
+
+.gameButton:hover {
+
+    background-color: green;
+    color: white;
+    box-shadow: 2px 4px white;
+}
+
+.gameButton {
+    font-size: 20px;
+    padding: 30px;
+    border-radius: 10px;
+    border: none;
+    border-radius: 10px;
+    border: none;
+    color: black;
+    background-color: white;
+    box-shadow: 2px 4px green;
+}
+
+.xColor {
+    color: rgb(2, 179, 255);
+}
+
+.oColor {
+    color: tomato;
+}
+
+#textArea {
+    color: white;
+    padding-right: 40px;
+    text-transform: uppercase;
+    text-align: right;
+    font-size: 40px;
+}
+
+.col-30 {
+    width: 30%;
+}
+
+.col-60 {
+    width: 60%;
+}
+
+.blueColor {
+    color: rgb(2, 179, 255);
+    text-shadow: 1px 2px green;
+}
+
+.redColor {
+    color: tomato;
+    text-shadow: 1px 2px green;
+}
+
+@media screen and (max-width: 1200px) {
+    td {
+        font-size: 5.5em;
+    }
+    
+}
+
+@media screen and (max-width: 992px) {
+    td {
+        font-size: 4.5em;
+    }
+
+    td {
+        width: 7rem;
+        height: 7rem;
+    }
+
+    .col-30 {
+        width: 100%;
+    }
+    
+    .col-60 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 15px;
+    }
+
+    #buttonArea {
+        justify-content: center;
+        padding-right: 0px;
+    }
+    .gameButton {
+        font-size: 17px;
+        padding: 26px;
+        border-radius: 10px;
+        border: none;
+        border-radius: 10px;
+        border: none;
+        color: black;
+        background-color: white;
+        box-shadow: 2px 4px green;
+    }
+    h1 {
+        text-align: CENTER;
+        padding-right: 0px;
+        font-size: 36px;
+    }
+    #textArea {
+        padding-right: 0px;
+        text-align: center;
+    }
+}
