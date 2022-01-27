@@ -39,10 +39,8 @@ td {
 }
 
 .assignFailed {
-    background-image: url("./img/faraona-al-forno1.jpg");
+    background-image: url("./img/bug-splat.png");
     background-size: cover;
-
-
 }
 
 .assignWin {
