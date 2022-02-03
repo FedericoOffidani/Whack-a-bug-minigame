@@ -13,15 +13,15 @@
 <body>
     <div class="container">
         <div class="col-30">
-            <h1>Tic Tac Toe</h1>
+            <h1>WHACK A BUG</h1>
             <div id="buttonArea">
-                <button class="gameButton" onclick="replay(),countdown()">
+                <button class="gameButton" onclick="replay(),countdown(),resetScore()">
                     New game
                 </button>
             </div>
             <div id="textArea">
                 <p>Score:<span id="testo">0</span></p>
-                <p>Time:<span id="tempo">30</span></p>
+                <p>Time:<span id="tempo"></span></p>
             </div>
         </div>
         <div id="gameField" class="col-60">

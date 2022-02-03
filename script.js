@@ -6,8 +6,8 @@ var score = 0;
 var speed = 1000;
 var myIntervall;
 var myTime;
-const GAMETIME = 30;
-var timer = GAMETIME;
+const gametime = 15;
+var timer = gametime;
 var timeOut = true;
 
 
@@ -24,6 +24,7 @@ const createGameField = (tableSize) => {
     }
     grid += `</table>`;
     document.getElementById('gameField').innerHTML = grid;
+    document.getElementById("tempo").innerText = timer;
 }
 createGameField(tableSize);
 
@@ -38,6 +39,7 @@ const newBug = (max) => {
 }
 
 const replay = () => {
+
     myIntervall = setInterval(() => { newBug(max) }, speed);
     console.log("nuovo intervllo");
 
@@ -45,8 +47,9 @@ const replay = () => {
 }
 
 const countdown = () => {
+
     timeOut = true;
-    timer = GAMETIME
+    timer = gametime
     myTime = setInterval(() => {
         if (timer > 0) {
             timer--;
@@ -55,12 +58,17 @@ const countdown = () => {
             timer = 0; clearInterval(myTime);
             clearInterval(myIntervall);
             timeOut = false
+
         };
         document.getElementById("tempo").innerText = timer;
 
     }, 1000);
 }
 
+const resetScore= ()=>{
+    score=0;
+    document.getElementById("testo").innerText = score;
+}
 
 const checkWin = (Id) => {
     if (timeOut) {
